@@ -30,11 +30,24 @@ class Animal:
         pass
 
 class Mammal(Animal):
-    def
+    def __init__(self, name, species, age, diet, has_hair:bool):
+        super().__init__(name, species, age, diet)
+        self.has_hair = True
+
 
 class Reptile(Animal):
-    def
+    def __init__(self, name, species, age, diet, has_scale:bool):
+        super().__init__(name, species, age, diet)
+        self.has_scale = True
 
+    def crawl(self):
+        pass
 
 class Birds(Animal):
-    def
+    def __init__(self, name, species, age, diet, has_beak:bool, wing_span):
+        super().__init__(name, species, age, diet)
+        self.has_beak = True
+        self.wing_span = wing_span
+
+    def fly(self):
+        pass
