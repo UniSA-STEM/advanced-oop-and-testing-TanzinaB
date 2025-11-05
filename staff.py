@@ -10,6 +10,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 from abc import ABC, abstractmethod
 
 class Staff(ABC):
+    """Abstract base class for staff members."""
     def __init__(self, name, role):
         if not name or not role:
             raise ValueError("Staff name and role required.")
@@ -23,6 +24,7 @@ class Staff(ABC):
 
     @abstractmethod
     def perform_duty(self):
+        """All staff must implement their duties."""
         pass
 
 
