@@ -1,6 +1,6 @@
 '''
-File: filename.py
-Description: A brief description of this Python module.
+File: animal.py
+Description: Demonstrates encapsulation, inheritance, polymorphism and composition
 Author: Tanzina Billah
 ID: 110458303
 Username: bilty009

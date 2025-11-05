@@ -1,6 +1,6 @@
 '''
-File: filename.py
-Description: A brief description of this Python module.
+File: staff.py
+Description: Abstract base Staff class and two concrete subclasses (inheritance and polymorphism)
 Author: Tanzina Billah
 ID: 110458303
 Username: bilty009
