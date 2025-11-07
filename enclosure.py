@@ -8,36 +8,33 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 class Enclosure:
-    """Holds animals of one species and maintains cleanliness."""
-    def __init__(self, name: str, environment: str, size: float):
+    """Represents an enclosure that holds compatible animals."""
+    def __init__(self, name, environment, size):
         if not name or size <= 0:
-            raise ValueError("Valid name and positive size required.")
-        self._name = name.title()
-        self._environment = environment.lower()
-        self._size = size
-        self._animals = []
-        self._cleanliness = 100  # 0–100 scale
+            raise ValueError("Enclosure must have valid name and positive size.")
+        self.__name = name.title()
+        self.__environment = environment.lower()
+        self.__size = size
+        self.__cleanliness = 100
+        self.__animals = []
 
     @property
-    def name(self): return self._name
+    def name(self): return self.__name
     @property
-    def animals(self): return list(self._animals)
-    @property
-    def cleanliness(self): return self._cleanliness
+    def cleanliness(self): return self.__cleanliness
 
     def add_animal(self, animal):
-        """Add an animal if compatible."""
-        if self._animals and self._animals[0].species != animal.species:
-            raise ValueError(f"Cannot mix {animal.species} with {self._animals[0].species}!")
+        if self.__animals and self.__animals[0].species != animal.species:
+            raise ValueError(f"Cannot mix {animal.species} with {self.__animals[0].species}.")
         if animal.health.is_unwell():
             raise ValueError(f"{animal.name} is unwell and cannot be moved.")
-        self._animals.append(animal)
+        self.__animals.append(animal)
         animal.assign_enclosure(self)
 
     def clean(self):
-        self._cleanliness = min(100, self._cleanliness + 30)
-        return f"{self._name} enclosure cleaned. Cleanliness now {self._cleanliness}."
+        self.__sanitize()
+        return f"{self.__name} cleaned. Cleanliness is now {self.__cleanliness}%."
 
-    def status_report(self):
-        animal_names = ", ".join([a.name for a in self._animals]) or "No animals"
-        return f"{self._name} | Cleanliness: {self._cleanliness}% | Animals: {animal_names}"
+    def __sanitize(self):
+        """Private cleaning method (encapsulation)."""
+        self.__cleanliness = min(100, self.__cleanliness + 25)
