@@ -53,7 +53,6 @@ class Animal:
         self.__health = HealthRecord()
         self.__enclosure = None
 
-    # Properties (encapsulation)
     @property
     def name(self): return self.__name
     @property
@@ -79,7 +78,6 @@ class Animal:
         return f"{self.__name} is {self.__health.status()}."
 
 
-# Subclasses show polymorphism
 class Mammal(Animal):
     def make_sound(self):
         return f"{self.name} (mammal) says '{self._Animal__sound}'."
